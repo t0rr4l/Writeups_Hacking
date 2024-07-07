@@ -81,7 +81,7 @@ En la web encontramos un directorio /admin en uno de los links. Observamos el pa
 
 
 ### Explotación
-Tras buscar en internet, encontramos un exploit para la versión 5.15.15 -> Exploit En el exploit tenemos que editar el archivo poc.xml para ejecutar el comando que queremos, en este caso la reverse shell.
+Tras buscar en internet, encontramos un [exploit](https://github.com/evkl1d/CVE-2023-46604) para la versión 5.15.15 -> Exploit En el exploit tenemos que editar el archivo poc.xml para ejecutar el comando que queremos, en este caso la reverse shell.
 ```xml
 <value>bash</value>
 <value>-c</value>
