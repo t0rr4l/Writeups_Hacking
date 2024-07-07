@@ -7,7 +7,7 @@ Enlace a la máquina -> [Dockerlabs](https://mega.nz/file/0SlG3S7Z#bF91meiTF3k8A
 - **Plataforma:** DockerLabs
 - **Dirección IP:** 172.17.0.2
 - **Vulnerabilidades Explotadas:**
-	- ActiveMQ 5.15.25 explot
+	- ActiveMQ 5.15.25 exploit
 
 ### Reconocimiento
 Comenzamos realizando un escaneo general con nmap sobre la IP de la máquina víctima para ver que puertos tiene abiertos.
