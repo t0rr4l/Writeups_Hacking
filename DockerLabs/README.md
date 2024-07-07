@@ -19,7 +19,7 @@ Aquí encontrarás los writeups de las máquinas que he completado en DockerLabs
 
 ### Máquinas
 
-- [Máquina1](Máquina1/writeup.md): Descripción y writeup de la Máquina1.
+- [Fooding](Fooding.md): Descripción y writeup de la máquina Fooding.
 - [Máquina2](Máquina2/writeup.md): Descripción y writeup de la Máquina2.
 - ...
 
