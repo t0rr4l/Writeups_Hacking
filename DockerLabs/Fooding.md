@@ -77,7 +77,8 @@ Nos pide autenticación, probamos credenciales comunes como pueden ser:
 Logramos acceder con las credenciales admin:admin
 
 En la web encontramos un directorio /admin en uno de los links. Observamos el panel de ActiveMQ, servicio el cual corre por el puerto 61616, como podemos ver en el reporte de nmap.
-![[Pasted image 20240707131751.png]]
+![Pasted image 20240707131751](https://github.com/torralvoPrueba/Writeups_Hacking/assets/102786092/b81ba295-d605-4ec7-9f3e-aa5872c21f49)
+
 
 ### Explotación
 Tras buscar en internet, encontramos un exploit para la versión 5.15.15 -> Exploit En el exploit tenemos que editar el archivo poc.xml para ejecutar el comando que queremos, en este caso la reverse shell.
