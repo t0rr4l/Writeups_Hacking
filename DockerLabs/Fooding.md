@@ -1,3 +1,6 @@
+# Máquina Fooding
+Enlace a la máquina -> [Dockerlabs](https://mega.nz/file/0SlG3S7Z#bF91meiTF3k8A9RGhvnqdS-Irm-GnDLYGpUQk1S9_lQ)
+
 - **Nombre de la Máquina:** Fooding
 - **Sistema Operativo**: Linux
 - **Dificultad:** Medium
@@ -9,7 +12,7 @@
 ### Reconocimiento
 Comenzamos realizando un escaneo general con nmap sobre la IP de la máquina víctima para ver que puertos tiene abiertos.
 ```bash
-nmap -n -Pn -sS -p- --min-rate 5000  172.17.0.2 -oN escaneo.txt
+sudo nmap -n -Pn -sS -p- --min-rate 5000  172.17.0.2 -oN escaneo.txt
 PORT      STATE SERVICE     REASON
 80/tcp    open  http        syn-ack
 443/tcp   open  https       syn-ack
@@ -24,7 +27,7 @@ PORT      STATE SERVICE     REASON
 
 Lanzamos un conjunto de scripts predeterminado con nmap para que nos reporte más información sobre los servicios.
 ```bash
-nmap -sCV -p80,443,1883,5672,8161,41031,61613,61614,61616 172.17.0.2 -oN targeted.txt
+sudo nmap -sCV -p80,443,1883,5672,8161,41031,61613,61614,61616 172.17.0.2 -oN targeted.txt
 ________________________________________________
 PORT      STATE SERVICE    VERSION
 80/tcp    open  http       Apache httpd 2.4.59 ((Debian))
