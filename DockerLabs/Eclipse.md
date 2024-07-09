@@ -7,7 +7,7 @@ Enlace a la máquina -> [Dockerlabs](https://mega.nz/file/RG0whSrR#dhO_VHaG-BK8A
 - **Plataforma:** DockerLabs
 - **Dirección IP:** 172.17.0.2
 - **Vulnerabilidades Explotadas:**
-	- Slor 8.3.0 Remote Code Execution via Velocity Template
+	- Solr 8.3.0 Remote Code Execution via Velocity Template
 
 ### Reconocimiento y enumeración
 Comenzamos realizando un escaneo general con nmap sobre la IP de la máquina víctima para ver que puertos tiene abiertos.
