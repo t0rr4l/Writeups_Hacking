@@ -19,8 +19,8 @@ Aquí encontrarás los writeups de las máquinas que he completado en DockerLabs
 
 ### Máquinas
 
-- [Fooding](Fooding.md): Descripción y writeup de la máquina Fooding.
-- [Máquina2](Máquina2/writeup.md): Descripción y writeup de la Máquina2.
+- [Fooding](Fooding.md): En este laboratorio de hacking, escaneamos el sistema con nmap y encontramos múltiples servicios abiertos en los puertos 80, 443, 1883, 5672, 8161, 41031, 61613, 61614 y 61616. Identificamos una vulnerabilidad en ActiveMQ 5.15.15 y la explotamos utilizando un exploit específico para esta versión. Luego, obtuvimos acceso root ejecutando una reverse shell debido a que el servicio explotado corría con privilegios de root.
+- [Eclipse](Eclipse.md):En este laboratorio de hacking, escaneamos el sistema con nmap y encontramos servicios en los puertos 80 y 8983. Identificamos una vulnerabilidad en Solr y la explotamos con Metasploit. Luego, utilizamos el binario dosbox para escalar privilegios y obtener acceso root ejecutando `sudo su`.
 - ...
 
 ## Contacto
