@@ -11,8 +11,11 @@ Enlace a la máquina -> [Dockerlabs](https://mega.nz/file/Qft1jCjb#PlBLNl2jgetv_
 - **Plataforma:** DockerLabs
 - **Dirección IP:** 10.10.10.2 y 20.20.20.3
 - **Vulnerabilidades Explotadas:**
-  - Fuerza bruta de credenciales FTP utilizando Hydra.
-  - 
+  - Fuerza bruta de credenciales SSH utilizando Hydra.
+  - Pivoting a máquina 20.20.20.3
+  - Explotación de un parámetro vulnerable en una página web.
+  - Permisos SUID en curl.
+  - Escalada de privilegios mediante la edición del archivo /etc/passwd.
 
 ## Reconocimiento y Enumeración
 Comenzamos realizando un escaneo general con nmap sobre la IP de la máquina víctima para identificar los puertos abiertos.
