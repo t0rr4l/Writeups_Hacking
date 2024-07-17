@@ -11,7 +11,10 @@ Enlace a la máquina -> [Dockerlabs](https://mega.nz/file/xeNVTA5B#RXNj1lKF2Gab1
 - **Plataforma:** DockerLabs
 - **Dirección IP:** 172.17.0.2
 - **Vulnerabilidades Explotadas:**
-  - swsw
+  - **HTML Injection:** Permite ejecutar código HTML malicioso en la página web de Pinguinazo.
+  - **Server-Side Template Injection (SSTI):** Aprovechada para ejecutar comandos en el servidor mediante plantillas mal configuradas.
+- **Escalada de Privilegios:**
+  - Aprovechamiento de `sudo java` para ejecutar código como root sin autenticación, utilizando un archivo JAR malicioso generado con `msfvenom`.
 
  
 Aquí tienes el texto reescrito con otras palabras:
