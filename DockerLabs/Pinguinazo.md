@@ -1,4 +1,4 @@
-# Máuquina pinguinazo
+# Máquina pinguinazo
 
 Enlace a la máquina -> [Dockerlabs](https://mega.nz/file/xeNVTA5B#RXNj1lKF2Gab1HwAWE1SdMtb8CFPJh4le7jsSWjZ7qc)
 
