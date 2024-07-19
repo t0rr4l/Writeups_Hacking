@@ -16,9 +16,6 @@ Enlace a la máquina -> [Dockerlabs](https://mega.nz/file/xeNVTA5B#RXNj1lKF2Gab1
 - **Escalada de Privilegios:**
   - Aprovechamiento de `sudo java` para ejecutar código como root sin autenticación, utilizando un archivo JAR malicioso generado con `msfvenom`.
 
- 
-Aquí tienes el texto reescrito con otras palabras:
-
 ## Reconocimiento y Enumeración
 Comenzamos realizando un escaneo general con nmap sobre la IP de la máquina objetivo para identificar los puertos abiertos.
 
