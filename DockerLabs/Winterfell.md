@@ -234,4 +234,4 @@ sudo /usr/bin/bash /home/daenerys/.secret/.shell.sh
 
 ![imagen](https://github.com/user-attachments/assets/d7324a55-69ee-42ef-ae07-af06bd332b14)
 
-Como podemos ver ya nos habríamos convertido en usuario root. Máquina muy chula en la que se puede aprender varios conceptos como la ferxa bruta y los distintos vectores de escaladas.
+Como podemos ver ya nos habríamos convertido en usuario root. Máquina muy chula en la que se puede aprender varios conceptos como la fuerza bruta y los distintos vectores de escaladas.
