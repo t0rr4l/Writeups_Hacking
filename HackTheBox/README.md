@@ -1,4 +1,5 @@
-# HackTheBox Writeups
+# HackTheBox Writeups ![imagen](https://github.com/user-attachments/assets/f2108645-7cb5-4699-8d63-e0b8854cf853)
+
 
 En este repositorio iré subiendo los WriteUps de las máquinas de la plataforma HackTheBox. HackTheBox ofrece entornos controlados ideales para practicar hacking ético y pentesting.
 
