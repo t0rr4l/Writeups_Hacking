@@ -1,4 +1,5 @@
-# TryHackMe Writeups
+# TryHackMe Writeups ![imagen](https://github.com/user-attachments/assets/6c6161c9-257a-4181-aee5-11f9239913a0)
+
 
 En este repositorio iré subiendo los WriteUps de las máquinas de la plataforma TryHackMe. En TryHackMe, puedes acceder a entornos controlados que se despliegan automáticamente, ideales para practicar hacking ético y pentesting.
 
