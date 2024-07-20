@@ -1,4 +1,6 @@
 # DockerLabs Writeups
+![imagen](https://github.com/user-attachments/assets/d9358beb-d99b-4b71-aa72-b278eb79ed3e)
+
 
 En este repositorio iré subiendo los WriteUps de las máquinas de la plataforma DockerLabs. En DockerLabs, puedes descargar entornos controlados en Docker que se despliegan automáticamente con un script en bash. Estos entornos son ideales para practicar hacking ético y pentesting.
 
