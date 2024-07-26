@@ -12,8 +12,8 @@ Enlace a la máquina -> [Dockerlabs](https://mega.nz/file/0L9nEQIT#W7C_nzun175xr
 - **Vulnerabilidades Explotadas:**
   - SQL Inyecction.
 - **Escalada de Privilegios:**
-  - sudo posh.
-  - editar script para ejecutarlo con permisos de root.
+  - Binario posh.
+  - Modificar script y ejecutarlo con permisos de root.
 
 ## Reconocimiento y Enumeración
 Comenzamos realizando un escaneo general con nmap sobre la IP de la máquina objetivo para identificar los puertos abiertos.
