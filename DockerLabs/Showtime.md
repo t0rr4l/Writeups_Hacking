@@ -10,10 +10,15 @@ Enlace a la máquina -> [Dockerlabs](https://mega.nz/file/0L9nEQIT#W7C_nzun175xr
 - **Plataforma:** DockerLabs
 - **Dirección IP:** 172.17.0.2
 - **Vulnerabilidades Explotadas:**
-  - SQL Inyecction.
+  - **Inyección SQL en la página de login**: Al permitir la inyección de SQL, pudimos acceder a la aplicación con credenciales administrativas.
+  - **Ejecución de comandos a través de un formulario en la web**: Una vez autenticado, se pudo ejecutar comandos del sistema a través de un formulario vulnerable.
 - **Escalada de Privilegios:**
-  - Binario posh.
-  - Modificar script y ejecutarlo con permisos de root.
+  - **De usuario web a usuario `joe`**:
+    - **Método**: Encontrar una lista de contraseñas en un archivo oculto y usarlas para un ataque de fuerza bruta con Hydra.
+  - **De usuario `joe` a usuario `luciano`**:
+    - **Método**: Uso del comando `sudo` para ejecutar `/bin/posh` y cambiar de usuario.
+  - **De usuario `luciano` a root**:
+    - **Método**: Modificación de un script con permisos de root para obtener una shell privilegiada.
 
 ## Reconocimiento y Enumeración
 Comenzamos realizando un escaneo general con nmap sobre la IP de la máquina objetivo para identificar los puertos abiertos.
@@ -261,3 +266,17 @@ sudo /bin/bash /home/luciano/script.sh
 ```
 
 ![imagen](https://github.com/user-attachments/assets/7330b5e5-eb35-41a3-9dba-f71aa75ebae4)
+
+## Mitigaciones
+1. **Proteger contra Inyecciones SQL**:
+   - Usar consultas parametrizadas o prepared statements en lugar de concatenar directamente los inputs del usuario en las consultas SQL.
+   - Implementar validación y escape de caracteres en las entradas del usuario.
+2. **Restringir la ejecución de comandos en aplicaciones web**:
+   - Evitar el uso de funciones que permiten la ejecución de comandos del sistema desde la aplicación web.
+   - Validar y sanitizar adecuadamente cualquier entrada del usuario.
+3. **Gestión de contraseñas**:
+   - No almacenar contraseñas en texto plano y evitar tener listas de contraseñas en el sistema.
+   - Usar políticas de contraseñas robustas y mecanismos de hash seguro para el almacenamiento de contraseñas.
+4. **Configuración adecuada de `sudo`**:
+   - Restringir el uso de `sudo` para ejecutar comandos que no son necesarios para los usuarios normales.
+   - Revisar y limitar la configuración de `sudo` para evitar escaladas de privilegios innecesarias.
