@@ -10,12 +10,12 @@ Enlace a la máquina -> [Dockerlabs](https://mega.nz/file/1asGQbRK#zvWJuwPfUI0P4
 - **Plataforma:** DockerLabs
 - **Dirección IP:** 172.17.0.2
 - **Vulnerabilidades Explotadas:**
-  - 
+  - Inyección de Comandos en la aplicación web para ejecutar comandos y obtener archivos sensibles como /etc/passwd y id_rsa.
 - **Escalada de Privilegios:**
-  - 
+  - Modificación de Script Root, aprovechando permisos de escritura para añadir SUID a /bin/bash.
 
 ## Reconocimiento y Enumeración
-Comenzamos realizando un escaneo general con Nmap sobre la IP de la máquina objetivo para identificar los puertos abiertos.
+Iniciamos un escaneo general utilizando Nmap para identificar los puertos abiertos en la IP del objetivo.
 
 ```bash
 sudo nmap -p- -sS --min-rate 5000 -v -n -Pn 172.17.0.2 -oN escaneo.txt
@@ -62,7 +62,7 @@ Revisando la web me doy cuenta que en los reportes sale una pista que dice lo si
 Este sistema también está diseñado para demostrar la importancia de la seguridad en la generación de comandos. La entrada de datos debe ser manejada con cuidado para evitar la inyección de comandos maliciosos.
 ```
 
-Estuve probando a ingresar comandos hasta que logré con el método y es que escribiendo por ejemplo `;ls` se ejecutaba el comando, lo guardaba en un `.txt` y lo mostraba por la web.
+Probé ingresar varios comandos y descubrí que al utilizar ;ls, el comando se ejecutaba correctamente, mostrando el resultado en un archivo .txt visible desde la web.
 
 ![imagen](https://github.com/user-attachments/assets/45d2dff4-0339-48e6-addf-7a8d0ec5fdc7)
 
@@ -97,7 +97,7 @@ Miro a ver is tiene permisos sudo o SUID y tampoco vemos nada.
 
 ![imagen](https://github.com/user-attachments/assets/bf7fe0c9-0f72-4b44-86b3-74695406f2ad)
 
-Seguí investigando hasta que decidí ver los procesos que se ejecutaban con el programa [pspy](https://github.com/DominicBreuker/pspy/releases). Me lo pasé a la máquina víctima usando el comando:
+Seguí investigando hasta que decidí ver los procesos que se ejecutaban con el programa [pspy](https://github.com/DominicBreuker/pspy/releases). Transferí la herramienta pspy a la máquina víctima utilizando el siguiente comando:
 
 ```bash
 python3 -m http.server 80
