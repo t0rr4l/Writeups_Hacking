@@ -1,4 +1,4 @@
-# Máquina Vulnvault
+# Máquina 404-not-found
 
 Enlace a la máquina -> [Dockerlabs](https://mega.nz/file/cCU02YzZ#UQgH3W1lHg-K8PbRRMokRwzP-hKpYI1ae6MWNAQkOj8)
 
