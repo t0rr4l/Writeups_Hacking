@@ -20,7 +20,7 @@ Aquí encontrarás los writeups de las máquinas que he completado en TryHackMe.
 
 ### Máquinas
 
-- [Máquina1](Máquina1.md): Descripción del writeup de la primera máquina. Incluye detalles sobre la metodología y los pasos seguidos para explotar las vulnerabilidades encontradas.
+- [**GamingServer**](GamingServer.md): es una máquina Linux de dificultad fácil en la plataforma TryHackMe. La intrusión inicial se consigue explotando una clave privada RSA encontrada en el directorio web oculto, que, tras ser crackeada, permite acceder al sistema como el usuario `john`. Posteriormente, la escalada de privilegios se realiza aprovechando la pertenencia del usuario al grupo `lxd`, lo que permite crear un contenedor privilegiado y montar el sistema de archivos del host, otorgando acceso root. La máquina requiere un enfoque de enumeración cuidadosa y técnicas de cracking de claves para lograr la intrusión y escalada.
 - [Máquina2](Máquina2.md): Descripción del writeup de la segunda máquina. Incluye detalles sobre la metodología y los pasos seguidos para explotar las vulnerabilidades encontradas.
 
 ## Contacto
