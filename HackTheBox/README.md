@@ -20,7 +20,7 @@ Aquí encontrarás los writeups de las máquinas que he completado en HackTheBox
 
 ### Máquinas
 
-- [Máquina1](Máquina1.md): Descripción del writeup de la primera máquina. Incluye detalles sobre la metodología y los pasos seguidos para explotar las vulnerabilidades encontradas.
+- [Cicada](cicada.md): Cicada es una máquina enfocada en la explotación de vulnerabilidades en entornos Windows, con un énfasis especial en la enumeración y explotación de SMB (Server Message Block). Durante el proceso, se emplean técnicas de reconocimiento de usuarios y comparticiones SMB mediante herramientas como netexec y crackmapexec.
 - [Máquina2](Máquina2.md): Descripción del writeup de la segunda máquina. Incluye detalles sobre la metodología y los pasos seguidos para explotar las vulnerabilidades encontradas.
 
 ## Contacto
