@@ -1,4 +1,4 @@
-# Máquina 404-not-found
+# Máquina Cicada
 
 Enlace a la máquina -> [HackTheBox](https://app.hackthebox.com/machines/Cicada)
 
